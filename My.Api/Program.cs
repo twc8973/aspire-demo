@@ -34,7 +34,7 @@ VALUES (@title, @description);",
             description = Guid.NewGuid().ToString(),
         });
 
-    await bus.Publish(new NewTodo() { Title = title });
+    await bus.Publish(new NewTodo(title));
 
     return Results.Redirect("/all");
 });
